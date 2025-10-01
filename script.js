@@ -34,7 +34,8 @@ function generateRandomUser(count) {
     return theUsers;
 }
 
-generateRandomUser(10);
+generateRandomUser(4);
+// generateRandomUser(10);
 
 
 let cardContainer = document.getElementById('cards-container');
@@ -42,21 +43,48 @@ function heroFuntion() {
     let allCardDiv = '';
 
     theUsers.forEach(function (elem, idx) {
-        allCardDiv = allCardDiv + `<div class="card">
-                <img src="${elem.profileImageID}" alt="">
-                <h3>${elem.fullname}, ${elem.age}</h3>
-                
-                <h4>${elem.isAvailable ? "available" : "not available"}</h4>
-                <button id=${idx}>View more</button>
+        allCardDiv = allCardDiv + `<div class="card contract">
+                <div class="part1">
+                    <img src="${elem.profileImageID}" alt="">
+                    <h3>${elem.fullname}, ${elem.age}</h3>
+                    <h4>${elem.isAvailable ? "available" : "not available"}</h4>
+                    <button id=${idx}>View more</button>
+                </div>
+                <div class="part2">
+                    <h3>From: ${elem.state}</h3>
+                    <h3>Skilled at: ${elem.skills}</h3>
+                </div>                
             </div>`;
     });
     cardContainer.innerHTML = allCardDiv;
 }
 heroFuntion();
 
+
+
+
 cardContainer.addEventListener('click', function (dets) {
-    let goldenValues = theUsers[dets.target.id];
+
+    // let goldenValues = theUsers[dets.target.id];
+    // console.log(goldenValues);
+
+    let button = dets.target;
+
+    if (dets.target.tagName === 'BUTTON') {
+
+        const parentCard = dets.target.closest('.card');
+        parentCard.classList.toggle('expand');
+
+        if (parentCard.classList.contains('expand')) {
+            button.innerText = "Close";
+        }
+        else {
+            button.innerText = "View More";
+
+        }
+    }
     
+
 })
 
 
