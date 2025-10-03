@@ -9,7 +9,7 @@ function generateRandomUser(count) {
     const firstNames = ["Arjun", "Meera", "Rahul", "Priya", "Vikram", "Sneha", "Karan", "Anjali", "Rohit", "Pooja"];
     const lastNames = ["Sharma", "Verma", "Singh", "Patel", "Iyer", "Nair", "Das", "Gupta", "Kapoor", "Joshi"];
     const states = ["Maharashtra", "Karnataka", "Tamil Nadu", "Gujarat", "Punjab", "Rajasthan", "Bihar", "West Bengal", "Kerala", "Uttar Pradesh"];
-    const skillsPool = ["JavaScript", "Python", "Java", "C++", "SQL", "Node.js", "React", "Angular", "Django", "Flask", "HTML", "CSS", "AWS", "Docker", "Kubernetes"];
+    const skillsPool = [" JavaScript", " Python", " Java", " C++", " SQL", " Node.js", " React", " Angular", " Django", " Flask", " HTML", " CSS", " AWS", " Docker", " Kubernetes"];
 
 
     // const profileImageURL = "https://picsum.photos/id/237/200/300";
@@ -45,14 +45,14 @@ function heroFuntion() {
     theUsers.forEach(function (elem, idx) {
         allCardDiv = allCardDiv + `<div class="card contract">
                 <div class="part1">
-                    <img src="${elem.profileImageID}" alt="">
+                    <img src="${elem.profileImageID}" alt="Profile photo">
                     <h3>${elem.fullname}, ${elem.age}</h3>
                     <h4>${elem.isAvailable ? "available" : "not available"}</h4>
                     <button id=${idx}>View more</button>
                 </div>
                 <div class="part2">
-                    <h3>From: ${elem.state}</h3>
-                    <h3>Skilled at: ${elem.skills}</h3>
+                    <h3><p>From:</p> ${elem.state}</h3>
+                    <h3><p>Skilled at:</p> ${elem.skills}</h3>
                 </div>                
             </div>`;
     });
